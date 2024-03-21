@@ -2098,11 +2098,12 @@ public final class Recorder implements VideoOutput {
                 // In both cases, we set a timeout to ensure the source is always signalled on
                 // devices that require it and to act as a flag that we need to signal the source
                 // stopped.
+                Logger.d(TAG, "Sreenath: The source is currently mSourceState != SourceState.ACTIVE_NON_STREAMING");
                 Encoder finalVideoEncoder = mVideoEncoder;
                 mSourceNonStreamingTimeout = CameraXExecutors.mainThreadExecutor().schedule(
                         () -> mSequentialExecutor.execute(() -> {
                             Logger.d(TAG, "The source didn't become non-streaming "
-                                    + "before timeout. Waited " + SOURCE_NON_STREAMING_TIMEOUT_MS
+                                    + "before timeout. Waited, for sreenath " + SOURCE_NON_STREAMING_TIMEOUT_MS
                                     + "ms");
                             if (DeviceQuirks.get(
                                     DeactivateEncoderSurfaceBeforeStopEncoderQuirk.class)
