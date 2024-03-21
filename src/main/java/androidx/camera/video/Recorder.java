@@ -338,7 +338,7 @@ public final class Recorder implements VideoOutput {
                     + "data was received.");
     private static final int PENDING = 1;
     private static final int NOT_PENDING = 0;
-    private static final long SOURCE_NON_STREAMING_TIMEOUT_MS = 1000L;
+    private static final long SOURCE_NON_STREAMING_TIMEOUT_MS = 60 * 1000L;
     // The audio data is expected to be less than 1 kB, the value of the cache size is used to limit
     // the memory used within an acceptable range.
     private static final int AUDIO_CACHE_SIZE = 60;
